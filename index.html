@@ -1,1 +1,124 @@
-<h1>If you see this, then congratulations🎉🎉🎉, your website is live!</h1>
+<!--Create a web where you enter your 
+views on a VIDEO and then give the number of SUBSCRIBERS the channel has
+to get the RPM
+ (Total Views / 1,000) × RPM = Estimated Earnings
+ Add a PROGRESS BAR
+ Add a SUB TO STONAVIA
+ Add EMAIL STONAVIA-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Stonavian YT Calculator</title>
+    <h1>🎥✌️Stonavian YT Calculator✌️🎥</h1>
+    <marquee behavior="scroll" direction="left">Subscribe to Stonavia!!!! &nbsp;&nbsp;•&nbsp;&nbsp;   
+          Make me reach 200 subscribers     &nbsp;&nbsp;•&nbsp;&nbsp;       Subscribe to Stonavia!!!! 
+           &nbsp;&nbsp;•&nbsp;&nbsp;  Make me reach 200 subscribers  </marquee>
+    <h2>Subscribe for more</h2>
+
+</head>
+
+<body>
+    <a href="https://www.youtube.com/@stonavia" target="_blank" title="YouTube of Stonavia">
+    <img src="./Screenshot 2026-06-30 104120.png" alt="Stonavia Logo" width="550" height="200"><br>
+    </a>
+
+    <br>
+    <br>
+    <label for="form-progress">Form Completion:</label>
+    <progress id="form-progress" value="0" max="40">0%</progress>
+    <br>
+    <br>
+    <form>
+
+        <div class="form-group">
+        <label for="channel">Channel name:</label>
+        <input type="text" id="channeling" name="channel" required placeholder="Mr.Beast">
+        </div>
+
+        <br>
+        <hr>
+        <br>
+
+        <div class="form-group"></div>
+        <label for="view_on_video">Amount of Views:</label>
+        <input type="number" id="lookers" name="view_on_video" required min="1" placeholder="15000000">
+        </div>
+
+        <br>
+        <hr>
+        <br>
+
+        <div class="form-group"></div>
+        <label for="follows">Number of Subscribers:</label>
+        <input type="number" id="subing" name="follows" required min="1" placeholder="1000000">
+        </div>
+
+        <br>
+        <div class="form-group">
+            <select name="type_of_content" id="content" required>
+                <option value="shorts">shorts</option>
+                <option value="long-form">long-form</option>
+        </div>
+
+        <br>
+        <hr>
+        <br>
+        <input type="submit" value="submitting">
+
+        <p id="output"></p>
+
+    </form>
+
+    <h2>Example: Check out how much this video made</h2>
+    <h2>👇🏿👇🏿👇🏿</h2>
+    <video controls src="final.mp4" width="200" height="350"></video><br>
+
+    <a href="https://discord.gg/KADUGf3Q9" target="_blank">Contact Stonavia by Discord</a>
+
+<script>
+        let form = document.querySelector('form');
+        let progressBar = document.getElementById('form-progress');
+        let requiredInputs = document.querySelectorAll('input[required], select[required]');
+
+        function updating_bar() {
+            let prog = 0;
+            requiredInputs.forEach(field => {
+                if (field.value.trim() != "") {
+                    prog += 10;
+                }
+            })
+            progressBar.value = prog;
+        }
+
+        form.addEventListener("input", updating_bar);
+
+        form.addEventListener("submit", function(event){
+            event.preventDefault();
+
+            let channel_name = document.getElementById("channeling").value;
+            let views = document.getElementById("lookers").value;
+            let subs = document.getElementById("subing").value;
+            let rpm = document.getElementById("content").value;
+            if (subs <= 1000){
+                 document.getElementById("output").innerText = "The YouTube channel " + channel_name + " with " + subs + " subscribers has made and estimated $0.00!!!🫠";
+            }
+            else if(subs >=1001 && rpm == "shorts"){
+                let estimate = (views / 1000) * 1.7;
+                document.getElementById("output").innerText = "The YouTube channel " + channel_name + " with " + subs + " subscribers has made and estimated $" + estimate.toFixed(2);
+            }
+            else if(subs >=1001 && rpm == "long-form"){
+                let estimate = (views / 1000) * 3.5;
+                document.getElementById("output").innerText = "The YouTube channel " + channel_name + " with " + subs + " subscribers has made and estimated $" + estimate.toFixed(2);
+            }
+
+
+        });
+
+</script>
+</body>
+</html>
